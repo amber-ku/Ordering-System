@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #fbf5ec;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DonutController">
+   <children>
+      <Text fill="#685c5c" layoutX="169.0" layoutY="53.0" stroke="#a17070" strokeType="OUTSIDE" strokeWidth="5.0" text="Ordering Donuts" wrappingWidth="264.0">
+         <font>
+            <Font name="Georgia Bold" size="30.0" />
+         </font>
+      </Text>
+      <Label alignment="CENTER" layoutX="168.0" prefHeight="84.0" prefWidth="264.0" text="Ordering Donuts" textFill="#ffeded">
+         <font>
+            <Font name="Georgia Bold" size="30.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="typePicker" layoutX="23.0" layoutY="115.0" onAction="#selectDonut" prefWidth="150.0" promptText="Select Type">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
+      <ComboBox fx:id="amountPicker" layoutX="329.0" layoutY="206.0" prefHeight="31.0" prefWidth="57.0" promptText="1">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
+      <ListView fx:id="cartView" layoutX="412.0" layoutY="157.0" prefHeight="280.0" prefWidth="174.0" />
+      <Button fx:id="removeButton" layoutX="338.0" layoutY="296.0" mnemonicParsing="false" onAction="#remove" text="&lt;&lt;" textFill="#a15353">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Impact" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="addButton" layoutX="338.0" layoutY="250.0" mnemonicParsing="false" onAction="#add" text="&gt;&gt;" textFill="#a15353">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Impact" size="15.0" />
+         </font>
+      </Button>
+      <Label contentDisplay="RIGHT" layoutX="415.0" layoutY="450.0" text="sub-total" textFill="#585b56">
+         <font>
+            <Font name="Georgia Bold" size="16.0" />
+         </font>
+         <graphic>
+            <TextArea fx:id="subtotal" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="90.0" />
+         </graphic></Label>
+      <Button fx:id="addOrderButton" layoutX="481.0" layoutY="114.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="30.0" text="add to order" textFill="#a88585">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Georgia Bold" size="13.0" />
+         </font>
+      </Button>
+      <Pane layoutX="26.0" layoutY="156.0" prefHeight="280.0" prefWidth="280.0">
+         <children>
+            <Pane fx:id="yeastType" prefHeight="280.0" prefWidth="280.0" style="-fx-background-color: ffffff;">
+               <children>
+                  <GridPane prefHeight="280.0" prefWidth="280.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="140.0" GridPane.columnIndex="1">
+                           <children>
+                              <CheckBox fx:id="yeastMintCheck" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" opacity="0.7" prefHeight="125.0" prefWidth="124.0" />
+                              <VBox layoutX="32.0" layoutY="21.0" prefHeight="115.0" prefWidth="94.0">
+                                 <children>
+                                    <ImageView fx:id="yeastMintImg" fitHeight="90.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/yeastMint.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="94.0" text="Mint" textAlignment="CENTER" textFill="#585b56">
+                                       <font>
+                                          <Font name="Georgia Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <CheckBox fx:id="yeastStrawberryCheck" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" opacity="0.7" prefHeight="115.0" prefWidth="124.0" />
+                              <VBox layoutX="32.0" layoutY="13.0" prefHeight="115.0" prefWidth="94.0">
+                                 <children>
+                                    <ImageView fx:id="yeastStrawberryImg" fitHeight="90.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/yeastStrawberry.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="94.0" text="Strawberry" textAlignment="CENTER" textFill="#585b56">
+                                       <font>
+                                          <Font name="Georgia Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <CheckBox fx:id="yeastChocolateCheck" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" opacity="0.7" prefHeight="115.0" prefWidth="124.0" />
+                              <VBox layoutX="32.0" layoutY="21.0" prefHeight="115.0" prefWidth="94.0">
+                                 <children>
+                                    <ImageView fx:id="yeastChocolateImg" fitHeight="90.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/yeastChocolate.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="94.0" text="Chocolate" textAlignment="CENTER" textFill="#585b56">
+                                       <font>
+                                          <Font name="Georgia Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <CheckBox fx:id="yeastVanillaCheck" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" opacity="0.7" prefHeight="115.0" prefWidth="124.0" />
+                              <VBox layoutX="32.0" layoutY="13.0" prefHeight="115.0" prefWidth="94.0">
+                                 <children>
+                                    <ImageView fx:id="yeastVanillaImg" fitHeight="90.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/yeastVanilla.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="94.0" text="Vanilla" textAlignment="CENTER" textFill="#585b56">
+                                       <font>
+                                          <Font name="Georgia Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </GridPane>
+               </children></Pane>
+            <Pane fx:id="cakeType" prefHeight="280.0" prefWidth="280.0" style="-fx-background-color: ffffff;">
+               <children>
+                  <GridPane prefHeight="280.0" prefWidth="280.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="140.0" GridPane.columnIndex="1">
+                           <children>
+                              <CheckBox fx:id="cakeCoffeeCheck" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" opacity="0.7" prefHeight="125.0" prefWidth="124.0" />
+                              <VBox layoutX="32.0" layoutY="21.0" prefHeight="115.0" prefWidth="94.0">
+                                 <children>
+                                    <ImageView fx:id="cakeCoffeeImg" fitHeight="90.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../bin/image/cakeCoffee.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="94.0" text="Coffee" textAlignment="CENTER" textFill="#585b56">
+                                       <font>
+                                          <Font name="Georgia Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <CheckBox fx:id="cakeBerryCheck" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" opacity="0.7" prefHeight="115.0" prefWidth="124.0" />
+                              <VBox layoutX="32.0" layoutY="13.0" prefHeight="115.0" prefWidth="94.0">
+                                 <children>
+                                    <ImageView fx:id="cakeBerryImg" fitHeight="90.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../bin/image/cakeBerry.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="94.0" text="Berry" textAlignment="CENTER" textFill="#585b56">
+                                       <font>
+                                          <Font name="Georgia Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <CheckBox fx:id="cakeClassicCheck" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" opacity="0.7" prefHeight="115.0" prefWidth="124.0" />
+                              <VBox layoutX="32.0" layoutY="21.0" prefHeight="115.0" prefWidth="94.0">
+                                 <children>
+                                    <ImageView fx:id="cakeClassicImg" fitHeight="90.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../bin/image/cakeClassic.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="94.0" text="Classic" textAlignment="CENTER" textFill="#585b56">
+                                       <font>
+                                          <Font name="Georgia Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <CheckBox fx:id="cakeCinnamonCheck" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" opacity="0.7" prefHeight="115.0" prefWidth="124.0" />
+                              <VBox layoutX="32.0" layoutY="13.0" prefHeight="115.0" prefWidth="94.0">
+                                 <children>
+                                    <ImageView fx:id="cakeCinnamonImg" fitHeight="90.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/cakeCinnamon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="94.0" text="Cinnamon" textAlignment="CENTER" textFill="#585b56">
+                                       <font>
+                                          <Font name="Georgia Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </GridPane>
+               </children>
+            </Pane>
+            <Pane fx:id="holeType" prefHeight="280.0" prefWidth="280.0" style="-fx-background-color: ffffff;">
+               <children>
+                  <GridPane prefHeight="280.0" prefWidth="280.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="140.0" GridPane.columnIndex="1">
+                           <children>
+                              <CheckBox fx:id="holeGlazedCheck" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" opacity="0.7" prefHeight="125.0" prefWidth="124.0" />
+                              <VBox layoutX="32.0" layoutY="21.0" prefHeight="115.0" prefWidth="94.0">
+                                 <children>
+                                    <ImageView fx:id="holeGlazedImg" fitHeight="90.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../bin/image/holeGlazed.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="94.0" text="Glazed" textAlignment="CENTER" textFill="#585b56">
+                                       <font>
+                                          <Font name="Georgia Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <CheckBox fx:id="holePeanutCheck" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" opacity="0.7" prefHeight="115.0" prefWidth="124.0" />
+                              <VBox layoutX="32.0" layoutY="13.0" prefHeight="115.0" prefWidth="94.0">
+                                 <children>
+                                    <ImageView fx:id="holePeanutImg" fitHeight="90.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/holePeanut.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="94.0" text="Peanut" textAlignment="CENTER" textFill="#585b56">
+                                       <font>
+                                          <Font name="Georgia Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <CheckBox fx:id="holeLemonCheck" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" opacity="0.7" prefHeight="115.0" prefWidth="124.0" />
+                              <VBox layoutX="32.0" layoutY="21.0" prefHeight="84.0" prefWidth="101.0">
+                                 <children>
+                                    <ImageView fx:id="holeLemonImg" fitHeight="90.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../bin/image/holeLemon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="94.0" text="Lemon" textAlignment="CENTER" textFill="#585b56">
+                                       <font>
+                                          <Font name="Georgia Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <CheckBox fx:id="holeBlueberryCheck" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" opacity="0.7" prefHeight="115.0" prefWidth="124.0" />
+                              <VBox layoutX="32.0" layoutY="13.0" prefHeight="115.0" prefWidth="94.0">
+                                 <children>
+                                    <ImageView fx:id="holeBlueberryImg" fitHeight="90.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../bin/image/holeBlueberry.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="94.0" text="Blueberry" textAlignment="CENTER" textFill="#585b56">
+                                       <font>
+                                          <Font name="Georgia Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </GridPane>
+               </children>
+            </Pane>
+            <Pane fx:id="cover" prefHeight="280.0" prefWidth="280.0">
+               <children>
+                  <ImageView fitHeight="280.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/doughnut.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Button layoutX="191.0" layoutY="116.0" mnemonicParsing="false" onAction="#clearSelected" prefHeight="25.0" prefWidth="115.0" text="Clear Selected" textFill="#8d7777">
+         <font>
+            <Font name="Georgia Bold" size="11.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
